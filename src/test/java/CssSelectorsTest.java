@@ -64,5 +64,10 @@ public class CssSelectorsTest {
         driver.findElement(firstChild);
         driver.findElement(lastchild);
         driver.findElement(thirdChild);
+
+//        By wyszukiwarkaGoogle = By.cssSelector("body > div.L3eUgb > div.o3j99.ikrT4e.om7nvf > form > div:nth-child(1) > div.A8SBwf > div.RNNXgb > div > div.a4bIc > input");
+//        driver.findElement(wyszukiwarkaGoogle);
+
+
     }
 }
