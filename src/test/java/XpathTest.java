@@ -95,6 +95,16 @@ public class XpathTest {
         driver.findElement(prec);
         driver.findElement(precSib);
 
+        By divsAndLinks = By.xpath("//a | //div");
+        By andOp = By.xpath("//input[@name='fname' and @id='fname']");
+        By orOp = By.xpath("//input[@name='fname' or @id='fnae']");
+
+        driver.findElement(divsAndLinks);
+        driver.findElement(andOp);
+        driver.findElement(orOp);
+
+        By findLink = By.xpath("//a[text()='IamWeirdLink']");
+        driver.findElement(findLink);
 
 
     }
