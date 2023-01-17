@@ -1,14 +1,14 @@
 
 
-public class SeleniumTest {
+//public class SeleniumTest {
 //        @Test
-//        public void openGooglePage() throws InterruptedException {
+//        public void openGooglePage() {
 //            WebDriver driver = getDriver("chrome");
 //            driver.manage().window().maximize();
-////            Dimension windowSize = new Dimension(200, 200);
-////            driver.manage().window().setSize(windowSize);
+//            Dimension windowSize = new Dimension(200, 200);
+//            driver.manage().window().setSize(windowSize);
 //            driver.get("https://www.google.com");
-////            JavascriptExecutor executor = (JavascriptExecutor) driver;
+////            JavascriptExecutor executor = (Javasc iptExecutor) driver;
 ////            executor.executeScript("window.open('https://www.google.com','blank','height=200, width=200')");
 ////            driver.close();
 //            // przechodzimy do okienta z plikami cookies
@@ -32,14 +32,14 @@ public class SeleniumTest {
 //            Assert.assertTrue(result.isDisplayed());
 //        }
 ////
-////    WebDriver driver = getDriver("chrome");
+//    WebDriver driver = getDriver("chrome");
 //    public WebDriver getDriver (String browser) {
 //        switch (browser){
 //            case "chrome":
 //                ChromeOptions options = new ChromeOptions();
 //                options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-////                String chromePath = "C:\\chromedriver\\chromedriver.exe";
-//////                System.setProperty("webdriver.chrome.driver", chromePath);
+//                String chromePath = "C:\\chromedriver\\chromedriver.exe";
+//                System.setProperty("webdriver.chrome.driver", chromePath);
 //                return new ChromeDriver(options);
 //        }
 //        throw new InvalidArgumentException("Invadlid browser name");
@@ -63,4 +63,4 @@ public class SeleniumTest {
 ////        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
 ////        driver.get("https://www.google.com");
 ////    }
-}
+//}
