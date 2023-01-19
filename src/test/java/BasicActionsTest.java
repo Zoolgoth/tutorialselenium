@@ -49,6 +49,11 @@ public class BasicActionsTest {
 
         }
 
+        SelectCheck selectCheck = new SelectCheck();
+        System.out.println(selectCheck.checkOption("Audi", selectCar));
+        System.out.println(selectCheck.checkOption("Jeep", selectCar));
+
+
 
 
     }
