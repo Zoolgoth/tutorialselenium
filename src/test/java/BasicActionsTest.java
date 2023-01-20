@@ -1,7 +1,4 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.Select;
@@ -29,7 +26,14 @@ public class BasicActionsTest {
         WebElement userNameInput = driver.findElement(By.name("username"));
         userNameInput.clear();
         userNameInput.sendKeys("admin");
-        userNameInput.sendKeys(Keys.TAB);
+//        System.out.println(driver.findElement(By.cssSelector("body > form:nth-child(17) > input[type=text]:nth-child(2)")).getAttribute("value"));
+        System.out.println(userNameInput.getText());
+        System.out.println(userNameInput.getAttribute("value"));
+        userNameInput.sendKeys(Keys.ENTER);
+        Alert firstAlert = driver.switchTo().alert();
+        firstAlert.accept();
+        driver.switchTo().alert().accept();
+
 //        driver.findElement(By.xpath("/html/body/label[2]")).click();
 //        driver.findElement(By.cssSelector("body > label:nth-child(15) > input[type=checkbox]")).click();
 //        driver.findElement(By.cssSelector("body > form:nth-child(16) > input[type=radio]:nth-child(1)")).click();
@@ -53,7 +57,11 @@ public class BasicActionsTest {
         System.out.println(selectCheck.checkOption("Audi", selectCar));
         System.out.println(selectCheck.checkOption("Jeep", selectCar));
 
-
+        // pobieranie ukrytego tekstu:
+        WebElement para = driver.findElement(By.cssSelector(".topSecret"));
+        System.out.println("By text: " + para.getText());
+        System.out.println("By attr value: " + para.getAttribute("value"));
+        System.out.println("By attr text content: " + para.getAttribute("textContent"));
 
 
     }
