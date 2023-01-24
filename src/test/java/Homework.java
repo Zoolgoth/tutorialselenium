@@ -6,6 +6,7 @@ import org.testng.annotations.Test;
 
 public class Homework {
 // Things i want to do:
+// on https://testeroprogramowania.github.io/selenium/basics.html
 //   Create tests that work on basics.html
 //1. open browser
 //2. get text from head
