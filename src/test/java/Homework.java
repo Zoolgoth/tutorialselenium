@@ -1,4 +1,5 @@
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -49,6 +50,9 @@ public class Homework {
 
         driver.findElement(By.name("username")).sendKeys("ZooL");
         driver.findElement(By.name("password")).sendKeys("Looking for job");
+        driver.findElement(By.name("password")).sendKeys(Keys.ENTER);
+        driver.switchTo().alert().accept();
+        driver.switchTo().alert().accept();
 
         driver.findElement(By.id("newPage")).click();
 
