@@ -32,12 +32,12 @@ public class WaitTest {
         wait.withTimeout(Duration.ofSeconds(10));
         // how long wait to check again (1)
         wait.pollingEvery(Duration.ofSeconds(1));
-        )
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p")));
+//        WebElement para = driver.findElement(By.cssSelector("pa"));
+//        wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("p")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.tagName("p")));
 
         driver.findElement(By.cssSelector("p")).click();
         System.out.println(driver.findElement(By.cssSelector("body > p")).getText());
-
 
 
     }
