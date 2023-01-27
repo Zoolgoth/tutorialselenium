@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -8,9 +9,11 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
+import java.util.List;
 
 public class WaitTest {
 
+    WebElement driver;
 
     @Test
     public void imageTest() {
@@ -39,8 +42,43 @@ public class WaitTest {
         driver.findElement(By.cssSelector("p")).click();
         System.out.println(driver.findElement(By.cssSelector("body > p")).getText());
 
+        waitForElementToExists(By.cssSelector("p"));
 
     }
 
+    // Wlasna metoda na odrzucenie wyjatku
 
-}
+    public void waitForElementToExists (By locator) {
+        FluentWait<WebDriver> wait = new FluentWait<>(driver);
+        wait.ignoring(NoSuchElementException.class);
+        wait.withTimeout(Duration.ofSeconds(10));
+        wait.pollingEvery(Duration.ofSeconds(1));
+
+        // wlasna metoda/wlasny warunek do obejscia wyjatku
+//        wait.until(new Function<WebDriver, Boolean>() {
+//            @Override
+//            public Boolean apply(WebDriver driver) {
+//                List<WebElement> elements = driver.findElements(locator);
+//                if (elements.size()>0) {
+//                    System.out.println("Element jest na stronie");
+//                    return true;
+//                } else {
+//                    System.out.println("Elementu nie ma na stronie");
+//                    return false;
+//                }
+//            }
+//        });
+
+        //lambda skrot metody wlasnego warunku do obejscia wyjatku
+        wait.until(driver1 ->  {
+                List<WebElement> elements = driver.findElements(locator);
+                if (elements.size()>0) {
+                    System.out.println("Element jest na stronie");
+                    return true;
+                } else {
+                    System.out.println("Elementu nie ma na stronie");
+                    return false;
+                }
+            });
+    }
+    }
