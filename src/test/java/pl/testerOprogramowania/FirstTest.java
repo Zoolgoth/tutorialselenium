@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
-import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import java.time.Duration;
@@ -17,7 +16,7 @@ import java.util.List;
 public class FirstTest extends BaseTest {
 
 
-    @Test @Ignore
+    @Test
     public void firstTest() {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
@@ -29,7 +28,8 @@ public class FirstTest extends BaseTest {
 
         String paraText = driver.findElement(By.cssSelector("p")).getText();
         Assert.assertEquals(paraText, "Dopiero się pojawiłem!");
-
+        Assert.assertEquals(paraText, "Dopiero się pojawiłem!");
+        driver.quit();
 
     }
 
@@ -45,6 +45,7 @@ public class FirstTest extends BaseTest {
 
         String paraText = driver.findElement(By.cssSelector("p")).getText();
         Assert.assertEquals(paraText, "Dopiero się pojawiłem!");
+        driver.quit();
 
     }
 
