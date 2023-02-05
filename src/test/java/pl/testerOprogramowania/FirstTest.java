@@ -26,9 +26,14 @@ public class FirstTest extends BaseTest {
         driver.findElement(By.id("clickOnMe")).click();
         waitForElementToExist(By.cssSelector("p"));
 
-        String paraText = driver.findElement(By.cssSelector("p")).getText();
-        Assert.assertEquals(paraText, "Dopiero się pojawiłem!");
-        Assert.assertEquals(paraText, "Dopiero się pojawiłem!");
+        WebElement para = driver.findElement(By.cssSelector("p"));
+
+        Assert.assertEquals(para.isDisplayed(), true);
+        Assert.assertTrue(para.isDisplayed(), "Element is not displayed");
+        Assert.assertTrue(para.getText().startsWith("Dopiero"));
+        Assert.assertFalse(para.getText().startsWith("Pojawilem"));
+        Assert.assertEquals(para.getText(), "Dopiero sie pojawilem!");
+//        Assert.assertEquals(para.getText(), "Dopiero", "Teksty są różne");
         driver.quit();
 
     }
@@ -53,7 +58,7 @@ public class FirstTest extends BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
         WebDriver driver = new ChromeDriver(options);
-//        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
+        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
         wait.ignoring(NoSuchElementException.class);
