@@ -20,7 +20,7 @@ public class UploadTest {
         ChromeOptions options = new ChromeOptions();
         options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
         WebDriver driver = new ChromeDriver(options);
-        int randomNumber = (int) Math.random()*1000;
+        int randomNumber = (int) (Math.random()*1000);
         driver.get("https://testeroprogramowania.github.io/selenium/fileupload.html");
         // sikuli file upload is another option
 

@@ -19,12 +19,14 @@ import java.util.List;
 @Listeners(value = {SampleTestListener.class})
 public class FirstTest extends BaseTest {
 
+    WebDriver driver;
+
 
     @Test
     public void firstTest() {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         driver.findElement(By.id("clickOnMe")).click();
