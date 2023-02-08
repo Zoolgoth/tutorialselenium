@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -15,13 +13,14 @@ import java.util.List;
 
 public class SecondTest extends BaseTest {
 
-
+    WebDriver driver = DriverFactory.getDriver();
 
     @Test
     public void firstTest() {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+//        WebDriver driver = new ChromeDriver(options);
+        driver = DriverFactory.getDriver();
         driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         driver.findElement(By.cssSelector("#clickOnMe")).click();
@@ -34,11 +33,11 @@ public class SecondTest extends BaseTest {
 
     @Test
     public void secondTest() {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+//        WebDriver driver = new ChromeDriver(options);
 //        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
-
+        driver = DriverFactory.getDriver();
         driver.findElement(By.cssSelector("#clickOnMe")).click();
         waitForElementToExist(By.cssSelector("body > p"));
 
@@ -48,11 +47,12 @@ public class SecondTest extends BaseTest {
     }
 
     public void waitForElementToExist (By locator) {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+//        WebDriver driver = new ChromeDriver(options);
 //        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
+        driver = DriverFactory.getDriver();
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
         wait.ignoring(NoSuchElementException.class);
         wait.withTimeout(Duration.ofSeconds(10));

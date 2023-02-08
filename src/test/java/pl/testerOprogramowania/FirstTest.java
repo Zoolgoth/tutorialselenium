@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
@@ -19,7 +17,7 @@ import java.util.List;
 @Listeners(value = {SampleTestListener.class})
 public class FirstTest extends BaseTest {
 
-    WebDriver driver;
+    WebDriver driver = DriverFactory.getDriver();
 
 
     @Test
@@ -49,9 +47,9 @@ public class FirstTest extends BaseTest {
 
     @Test @Ignore
     public void secondTest() {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+//        WebDriver driver = new ChromeDriver(options);
 //        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         driver.findElement(By.id("clickOnMe")).click();
@@ -64,9 +62,9 @@ public class FirstTest extends BaseTest {
     }
 
     public void waitForElementToExist (By locator) {
-        ChromeOptions options = new ChromeOptions();
-        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
-        WebDriver driver = new ChromeDriver(options);
+//        ChromeOptions options = new ChromeOptions();
+//        options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+//        WebDriver driver = new ChromeDriver(options);
 //        driver.get("https://testeroprogramowania.github.io/selenium/wait2.html");
 
         FluentWait<WebDriver> wait = new FluentWait<>(driver);
