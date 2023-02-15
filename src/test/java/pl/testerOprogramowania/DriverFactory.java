@@ -11,7 +11,7 @@ public class DriverFactory {
     public static WebDriver getDriver() {
         if (driver==null) {
             ChromeOptions options = new ChromeOptions();
-            options.setBinary("D:\\programiki\\chrome pod selenium\\chrome-win\\chrome.exe");
+            options.setBinary("D:\\programiki\\chromePodSelenium\\chrome-win\\chrome.exe");
             driver = new ChromeDriver(options);
         }
         return driver;
