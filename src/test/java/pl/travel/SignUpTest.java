@@ -32,10 +32,15 @@ public class SignUpTest {
 //            Keys.TAB + "NewPassword123" + Keys.TAB + "NewPassword123");
 
         String lastName = "Palka";
+        // Unique email for every new run
+        int randomNumber = (int) (Math.random()*1000);
+        String email = "tester" + randomNumber + "@tester.pl";
         driver.findElement(By.name("firstname")).sendKeys("Juzek");
         driver.findElement(By.name("lastname")).sendKeys(lastName);
         driver.findElement(By.name("phone")).sendKeys("+48 500 699 676");
-        driver.findElement(By.name("email")).sendKeys("test10@test.pl");
+
+        driver.findElement(By.name("email")).sendKeys(email);
+
         driver.findElement(By.name("password")).sendKeys("NewPassword123");
         driver.findElement(By.name("confirmpassword")).sendKeys("NewPassword123");
 
