@@ -16,7 +16,7 @@ public class HotelSearch {
     // filling the pots of city
 
     @Test
-    public void searchHotel () throws InterruptedException {
+    public void searchHotel () {
 
     WebDriver driver = DriverFactory.getDriver();
     driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
