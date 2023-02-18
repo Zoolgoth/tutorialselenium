@@ -2,6 +2,7 @@ package pl.travel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pl.testerOprogramowania.DriverFactory;
@@ -58,12 +59,47 @@ public class HotelSearch {
         hotelNames.forEach(System.out::println);
 
 
-        Assert.assertEquals("Jumeirah Beach Hotel", hotelNames.get(0));
-        Assert.assertEquals("Oasis Beach Tower", hotelNames.get(1));
-        Assert.assertEquals("Rose Rayhaan Rotana", hotelNames.get(2));
-        Assert.assertEquals("Hyatt Regency Perth", hotelNames.get(3));
+        Assert.assertEquals(hotelNames.get(0),"Jumeirah Beach Hotel");
+        Assert.assertEquals(hotelNames.get(1),"Oasis Beach Tower");
+        Assert.assertEquals(hotelNames.get(2),"Rose Rayhaan Rotana");
+        Assert.assertEquals(hotelNames.get(3),"Hyatt Regency Perth");
+    }
 
 
+    //HOMEWORK exercise
+
+    @Test
+    public void searchHotelWithoutName () {
+
+        WebDriver driver = DriverFactory.getDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().window().maximize();
+        driver.get("http://www.kurs-selenium.pl/demo/");
+        // Choosing data by writing it manually "17/04/2023"
+        driver.findElement(By.name("checkin")).sendKeys("17/04/2023");
+        driver.findElement(By.name("checkout")).sendKeys("20/04/2023");
+        // now we choose the date in the calendar
+        //        driver.findElement(By.name("checkout")).click();
+//        driver.findElements(By.xpath("//td[@class='day ' and text()='30]"))
+//        .stream()
+//                .filter(WebElement::isDisplayed)
+//                .findFirst()
+//                .ifPresent(WebElement::click);
+
+        driver.findElement(By.id("travellersInput")).click();
+        driver.findElement(By.id("adultPlusBtn")).click();
+        driver.findElement(By.id("childPlusBtn")).click();
+
+
+        //click in button search on web
+//        driver.findElement(By.xpath("//*[@id=\"hotels\"]/form/div[5]/button")).click();
+        driver.findElement(By.xpath("//button[text()=' Search']")).click();
+
+        WebElement noResultHeading = driver.findElement(By.xpath("//div[@class='itemscontainer']//h2"));
+
+
+        Assert.assertTrue(noResultHeading.isDisplayed());
+        Assert.assertEquals(noResultHeading.getText(), "No Results Found");
     }
 
 }
