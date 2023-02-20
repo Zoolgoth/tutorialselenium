@@ -1,30 +1,20 @@
 package pl.travel;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pl.testerOprogramowania.DriverFactory;
 
-import java.util.concurrent.TimeUnit;
-
-public class SignUpTest {
+public class SignUpTest extends BaseTest {
 
     // Testing http://www.kurs-selenium.pl/demo/
     // filling the pots of city
 
     @Test
-    public void singUp () throws InterruptedException {
-
-    WebDriver driver = DriverFactory.getDriver();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.manage().window().maximize();
-    driver.get("http://www.kurs-selenium.pl/demo/");
-
-    driver.findElements(By.xpath("//li[@id='li_myaccount']")).stream()
-          .filter(WebElement::isDisplayed).findFirst().ifPresent(WebElement::click);
-    driver.findElements(By.xpath("//a[text()='  Sign Up']")).get(1).click();
+    public void singUpTest () throws InterruptedException {
+        driver.findElements(By.xpath("//li[@id='li_myaccount']")).stream()
+        .filter(WebElement::isDisplayed).findFirst().ifPresent(WebElement::click);
+        driver.findElements(By.xpath("//a[text()='  Sign Up']")).get(1).click();
 
     // My solution:
 //    driver.findElement(By.name("firstname")).sendKeys("Juzek" + Keys.TAB + "Palka" +

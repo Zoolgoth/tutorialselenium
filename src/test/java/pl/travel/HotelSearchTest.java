@@ -1,28 +1,21 @@
 package pl.travel;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pl.testerOprogramowania.DriverFactory;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-public class HotelSearch {
+public class HotelSearchTest extends BaseTest {
+
 
     // Testing http://www.kurs-selenium.pl/demo/
     // filling the pots of city
 
     @Test
-    public void searchHotel () {
-
-    WebDriver driver = DriverFactory.getDriver();
-    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    driver.manage().window().maximize();
-    driver.get("http://www.kurs-selenium.pl/demo/");
+    public void searchHotelTest () {
     driver.findElement(By.xpath("//span[text()='Search by Hotel or City Name']")).click();
     driver.findElement(By.xpath("//div[@id='select2-drop']//input")).sendKeys("Dubai");
     driver.findElement(By.xpath("//span[@class='select2-match' and text()='Dubai']")).click();
@@ -63,19 +56,14 @@ public class HotelSearch {
         Assert.assertEquals(hotelNames.get(1),"Oasis Beach Tower");
         Assert.assertEquals(hotelNames.get(2),"Rose Rayhaan Rotana");
         Assert.assertEquals(hotelNames.get(3),"Hyatt Regency Perth");
-        driver.quit();
     }
 
 
     //HOMEWORK exercise
 
     @Test
-    public void searchHotelWithoutName () {
+    public void searchHotelWithoutNameTest () {
 
-        WebDriver driver = DriverFactory.getDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        driver.get("http://www.kurs-selenium.pl/demo/");
         // Choosing data by writing it manually "17/04/2023"
         driver.findElement(By.name("checkin")).sendKeys("17/04/2023");
         driver.findElement(By.name("checkout")).sendKeys("20/04/2023");
