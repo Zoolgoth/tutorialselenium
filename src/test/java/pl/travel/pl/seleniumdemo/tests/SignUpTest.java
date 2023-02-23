@@ -1,4 +1,4 @@
-package pl.travel;
+package pl.travel.pl.seleniumdemo.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

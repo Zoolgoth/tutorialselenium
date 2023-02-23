@@ -1,4 +1,4 @@
-package pl.travel;
+package pl.travel.pl.seleniumdemo.tests;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
